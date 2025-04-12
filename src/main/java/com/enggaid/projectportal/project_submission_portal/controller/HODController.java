@@ -20,8 +20,6 @@ public class HODController {
     @GetMapping("/dashboard")
     public String showDashboard(Model model, Principal principal){
         String username = principal.getName();
-        Optional<User> user=Optional.ofNullable(userService.findByUsername(username));
-        model.addAttribute("user", user.orElse(new User()));
 
         return "hod/hod-dashboard";
     }

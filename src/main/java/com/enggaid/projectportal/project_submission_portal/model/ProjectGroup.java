@@ -76,7 +76,7 @@ public class ProjectGroup {
         return projectHead;
     }
 
-    public void setProjectHead(ProjectHead projectHead) {
+    public void setProjectHead(User projectHead) {
         this.projectHead = projectHead;
     }
 
