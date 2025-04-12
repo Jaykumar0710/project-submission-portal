@@ -53,4 +53,8 @@ public class ProjectMemberService {
     public void updateMember(ProjectMember projectMember) {
         memberRepository.save(projectMember);
     }
+
+    public Optional<ProjectMember> getMemberById(Long id) {
+        return memberRepository.findById(id);
+    }
 }

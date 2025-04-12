@@ -4,19 +4,27 @@ import jakarta.persistence.*;
 
 @Entity
 public class ProjectHead {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false, unique = true)
     private String email;
-
     private String enrollmentNumber;
     private String department;
     private String mobile;
+
+    @OneToOne(mappedBy = "projectHead", cascade = CascadeType.ALL)
+    private ProjectGroup projectGroup;  // Ensure this is mapped correctly to the other side of the relationship
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public ProjectGroup getProjectGroup() {
         return projectGroup;
@@ -66,18 +74,5 @@ public class ProjectHead {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    //One Head Lead One Project Group
-    @OneToOne(mappedBy = "projectHead", cascade=CascadeType.ALL)
-    private ProjectGroup projectGroup;
-
-
-
+    // Getters and setters omitted for brevity
 }

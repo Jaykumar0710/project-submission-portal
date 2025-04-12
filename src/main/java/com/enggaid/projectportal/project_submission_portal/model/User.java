@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity
-public class User implements UserDetails {
+public class User extends ProjectHead implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,8 +20,8 @@ public class User implements UserDetails {
 
     private String password;
 
-    @Column(unique = true)
-    private String email;
+//    @Column(unique = true)
+//    private String email;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -42,13 +42,13 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

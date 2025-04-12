@@ -17,26 +17,15 @@ public class ProjectGroup {
     @Enumerated(EnumType.STRING)
     private ProjectStatus status;
 
-    public ProjectStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(ProjectStatus status) {
-        this.status = status;
-    }
-
-
-
     @OneToOne
     @JoinColumn(name = "head_id")
-    private ProjectHead projectHead;
+    private ProjectHead projectHead;  // Corrected to ProjectHead instead of User
 
-
-    @OneToMany(mappedBy = "projectGroup", cascade =CascadeType.ALL)
+    @OneToMany(mappedBy = "projectGroup", cascade = CascadeType.ALL)
     private List<ProjectMember> members;
 
-    @OneToMany(mappedBy = "projectGroup", cascade=CascadeType.ALL)
-    private List<ProjectFile>projectFiles;
+    @OneToMany(mappedBy = "projectGroup", cascade = CascadeType.ALL)
+    private List<ProjectFile> projectFiles;
 
     private String submissionDate;
 
@@ -48,36 +37,12 @@ public class ProjectGroup {
         this.groupid = groupid;
     }
 
-    public String getSubmissionDate() {
-        return submissionDate;
+    public String getProjectTitle() {
+        return projectTitle;
     }
 
-    public void setSubmissionDate(String submissionDate) {
-        this.submissionDate = submissionDate;
-    }
-
-    public List<ProjectFile> getProjectFiles() {
-        return projectFiles;
-    }
-
-    public void setProjectFiles(List<ProjectFile> projectFiles) {
-        this.projectFiles = projectFiles;
-    }
-
-    public List<ProjectMember> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<ProjectMember> members) {
-        this.members = members;
-    }
-
-    public ProjectHead getProjectHead() {
-        return projectHead;
-    }
-
-    public void setProjectHead(User projectHead) {
-        this.projectHead = projectHead;
+    public void setProjectTitle(String projectTitle) {
+        this.projectTitle = projectTitle;
     }
 
     public String getDescription() {
@@ -88,11 +53,45 @@ public class ProjectGroup {
         this.description = description;
     }
 
-    public String getProjectTitle() {
-        return projectTitle;
+    public ProjectStatus getStatus() {
+        return status;
     }
 
-    public void setProjectTitle(String projectTitle) {
-        this.projectTitle = projectTitle;
+    public void setStatus(ProjectStatus status) {
+        this.status = status;
     }
+
+    public ProjectHead getProjectHead() {
+        return projectHead;
+    }
+
+    public void setProjectHead(ProjectHead projectHead) {
+        this.projectHead = projectHead;
+    }
+
+    public List<ProjectMember> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<ProjectMember> members) {
+        this.members = members;
+    }
+
+    public List<ProjectFile> getProjectFiles() {
+        return projectFiles;
+    }
+
+    public void setProjectFiles(List<ProjectFile> projectFiles) {
+        this.projectFiles = projectFiles;
+    }
+
+    public String getSubmissionDate() {
+        return submissionDate;
+    }
+
+    public void setSubmissionDate(String submissionDate) {
+        this.submissionDate = submissionDate;
+    }
+
+    // Getters and setters omitted for brevity
 }

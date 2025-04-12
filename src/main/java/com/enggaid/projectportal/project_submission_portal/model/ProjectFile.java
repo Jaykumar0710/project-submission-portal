@@ -9,17 +9,17 @@ public class ProjectFile {
     private Long id;
 
     private String fileName;
-    private  String FileType;
-    private String fileUrl; // store file in db or system
+    private String fileType;
+    private String fileUrl;
 
     @ManyToOne
     @JoinColumn(name = "group_id")
     private ProjectGroup projectGroup;
 
     private String uploadedBy;
-
     private String uploadDate;
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -61,11 +61,11 @@ public class ProjectFile {
     }
 
     public String getFileType() {
-        return FileType;
+        return fileType;
     }
 
     public void setFileType(String fileType) {
-        FileType = fileType;
+        this.fileType = fileType;
     }
 
     public String getFileName() {
